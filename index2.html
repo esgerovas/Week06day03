@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+
+
+	<script type="text/javascript">
+var style=document.createElement("style");
+	var s= document.createTextNode(".capmaker{width: 900px;margin:20px auto;}.capsFrame{position: relative;}.imgFrame,.capsFrame{width: 100%;}.imgFrame{height:380px;overflow: hidden;}.imgFrame img{width:100%;}.capsText{position: absolute;bottom:0;width:calc(100% - 20px);padding:10px;color:white;background-color: #b55555;}.capsText p{margin:0;}.settingFrame input{padding:10px 20px;width:calc(100% - 42px);padding:10px 20px;margin:10px 0;border:1px solid #b55555;font-size:14px;}.settingFrame input:focus{background-color: #A55555;color:white;border-color:#b55555;outline-color: #b55555;}.settingFrame button{padding:7px 12px;background-color: #b55555;color:white;font-size:14px;border:0;}");
+	
+	style.appendChild(s);
+	document.head.appendChild(style);
+
+	var capmaker=document.createElement("div");
+	document.body.appendChild(capmaker);
+	capmaker.className="capmaker";
+
+	var capsFrame=document.createElement("div");
+	capmaker.appendChild(capsFrame);
+	capsFrame.className="capsFrame";
+
+	var imgFrame=document.createElement("div");
+	capsFrame.appendChild(imgFrame);
+	imgFrame.className="imgFrame";
+
+	var img=document.createElement("img");
+	imgFrame.appendChild(img);
+	img.src="1.jpg";
+
+	var capsText=document.createElement("div");
+	var par=document.createTextNode("image1");
+	capsText.appendChild(par);
+	capsFrame.appendChild(capsText);
+	capsText.className="capsText";
+
+	var p=document.createElement("p");
+	capsText.appendChild(p);
+
+
+	var  settingFrame=document.createElement("div");
+	capmaker.appendChild(settingFrame);
+	settingFrame.className="settingFrame";
+
+	var input1=document.createElement("input");
+	settingFrame.appendChild(input1);
+	input1.setAttribute("type", "text");
+
+	var btn1=document.createElement("button");
+	var b1=document.createTextNode("Add Image");
+	btn1.appendChild(b1);
+	settingFrame.appendChild(btn1);
+
+	
+	var input2=document.createElement("input");
+	settingFrame.appendChild(input2);
+	input2.setAttribute("type", "text");
+
+	var btn2=document.createElement("button");
+	var b2=document.createTextNode("Add Text");
+	btn2.appendChild(b2);
+	settingFrame.appendChild(btn2);
+	
+
+		btn1.onclick = function(){
+			var capsImg=document.getElementsByTagName("input")[0].value;
+			if(capsImg=="")
+			{
+				alert("Sekil yoxdur");
+			}
+			else{
+				document.getElementsByClassName("imgFrame")[0].getElementsByTagName("img")[0].src=capsImg;
+			}
+		}
+		btn2.onclick = function(){
+			var capsText=document.getElementsByTagName("input")[1].value;
+			document.getElementsByClassName("capsText")[0].innerHTML="<p>"+capsText+"</p>"
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var style=document.createElement("style");
+	var s= document.createTextNode("#main{ width:900px; margin:30px auto;} .frame{width: 100%;overflow: hidden; height:380px;} .frame img{width: 100%;} .desc{background-color: lightgray;padding:10px;width: calc(100% - 20px);} p{margin:0;}.btngroup{margin-top:10px;}.btngroup button{background-color: gray;color:white;padding:7px 15px;border:0;font-size: 14px;}.btngroup button:first-child{float:left;}.btngroup button:last-child{float:right;}");
+	
+	style.appendChild(s);
+	document.head.appendChild(style);
+
+	var main=document.createElement("div");
+	document.body.appendChild(main);
+	main.id="main";
+
+	var frame=document.createElement("div");
+	main.appendChild(frame);
+	frame.className="frame";
+
+	var img=document.createElement("img");
+	frame.appendChild(img);
+
+	var desc=document.createElement("div");
+	main.appendChild(desc);
+	desc.className="desc";
+
+	var p=document.createElement("p");
+	desc.appendChild(p);
+
+
+	var  btngroup=document.createElement("div");
+	main.appendChild(btngroup);
+	btngroup.className="btngroup";
+
+
+	var btn1=document.createElement("button");
+	var b1=document.createTextNode("prev");
+	btn1.appendChild(b1);
+	btngroup.appendChild(btn1);
+	
+
+	var btn2=document.createElement("button");
+	var b2=document.createTextNode("next");
+	btn2.appendChild(b2);
+	btngroup.appendChild(btn2);
+	
+
+
+
+		 var imgarr=["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"];
+		 var descarr=["image 01", "image 02","image 03","image 04","image 05","image 06","image 07","image 08","image 09"];
+
+		  imgSrc=document.getElementsByTagName('img')[0];
+		  descSrc=document.getElementsByTagName('p')[0];
+		  imgSrc.src=imgarr[0];
+		  descSrc.innerHTML=descarr[0];
+
+		 count=0;
+
+		btn1.onclick = function() {
+			count--;
+			if(count<0){
+				count=imgarr.length-1;
+			}
+			imgSrc.src=imgarr[count];
+			descSrc.innerHTML=descarr[count];
+			console.log(count);
+		}
+		btn2.onclick = function(){
+			count++;
+			if(count==imgarr.length){
+				count=0;
+			}
+			imgSrc.src=imgarr[count];
+			descSrc.innerHTML=descarr[count];
+			console.log(count);
+		}
+	</script>
+</body>
+</html>
